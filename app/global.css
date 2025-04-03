@@ -56,7 +56,22 @@
   --ui-color: hsl(220, 91%, 54%);
 }
 
+@font-face {
+  font-family: "Noto Serif SC";
+  src: url("/fonts/PingFang/PingFang-Regular.ttf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Serif SC";
+  src: url("/fonts/PingFang/PingFang-Bold.ttf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
+  font-family: "Noto Serif SC", sans-serif;
   overscroll-behavior-y: none;
   background-color: var(--color-fd-background);
 }

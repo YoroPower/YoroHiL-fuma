@@ -5,9 +5,6 @@ import {
 } from 'react';
 import { cn } from '@/lib/cn';
 import Image from 'next/image';
-import TopImg from './topdesk.png';
-import DepImg from './depdesk.png';
-import DocImg from './docdesk.png';
 import { cva } from 'class-variance-authority';
 
 
@@ -56,9 +53,12 @@ export function PreviewImages() {
             </div>
             {active === 0 && (
                 <Image
-                    src={TopImg}
+                    src='/home/topdesk.png'
                     alt="preview"
                     priority
+                    width={800} // 指定宽度
+                    height={600} // 指定高度
+                    layout="intrinsic"
                     className={cn(
                         'w-full select-none duration-1000 animate-in fade-in slide-in-from-bottom-12 dark:[mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)]',
                         active !== 0 && 'hidden',
@@ -67,9 +67,12 @@ export function PreviewImages() {
             )}
             {active === 1 && (
                 <Image
-                    src={DepImg}
+                    src='/home/depdesk.png'
                     alt="preview"
                     priority
+                    width={800} // 指定宽度
+                    height={600} // 指定高度
+                    layout="intrinsic"
                     className={cn(
                         'w-full select-none duration-1000 animate-in fade-in slide-in-from-bottom-12 dark:[mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)]',
                         active !== 1 && 'hidden',
@@ -78,9 +81,12 @@ export function PreviewImages() {
             )}
             {active === 2 && (
                 <Image
-                    src={DocImg}
+                    src='/home/docdesk.png'
                     alt="preview"
                     priority
+                    width={800} // 指定宽度
+                    height={600} // 指定高度
+                    layout="intrinsic"
                     className={cn(
                         'w-full select-none duration-1000 animate-in fade-in slide-in-from-bottom-12 dark:[mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)]',
                         active !== 2 && 'hidden',

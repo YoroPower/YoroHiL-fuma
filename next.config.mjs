@@ -9,8 +9,8 @@ const config = {
   images: {
     unoptimized: true,
   },
-  basePath: '/YoroHiL-fuma',
-  assetPrefix: '/YoroHiL-fuma',
+  // basePath: '/YoroHiL-fuma',
+  // assetPrefix: '/YoroHiL-fuma',
 };
 
 export default withMDX(config);

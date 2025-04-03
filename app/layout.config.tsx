@@ -3,12 +3,8 @@ import { type LinkItemType } from 'fumadocs-ui/layouts/docs';
 import {
   AlbumIcon,
   MonitorCogIcon,
-  Book,
-  ComponentIcon,
   Heart,
-  Layout,
   LayoutTemplate,
-  Pencil,
   CpuIcon,
   ZapIcon,
 } from 'lucide-react';
