@@ -1,0 +1,89 @@
+---
+title: 快速开始
+description: 你的首个仿真项目
+---
+
+
+## 安装桌面应用
+
+### 安装 PSpice® for TI
+
+需要 TI 账号申请使用许可。填写一些信息(可以编造)，
+在 `I CERTIFY ALL THE ABOVE IS TRUE:` 勾选 `Yes`；
+
+import { EarthIcon } from 'lucide-react';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+
+<Card href="https://www.ti.com.cn/tool/cn/PSPICE-FOR-TI" icon={<EarthIcon className="text-purple-300" />} title='PSpice® for TI'>
+
+Handles most of the logic, including document search, content source adapters, and Markdown extensions.
+
+</Card>
+
+### 安装 Yoro-HiL
+
+这里还没有施工哦。但最终应该是开箱即用不需要安装。
+
+## 打开示例工程
+
+在 Yoro-HiL 包下有 Examples 文件夹，找到其中的 1_没想好什么电路 文件夹，将他整个粘贴到自己的文件夹下，比如桌面。
+
+找到其中的 pspice 文件夹，这是 PSpice® for TI 的工程文件夹，其下有 没想好什么电路.obj 文件，使用 PSpice® for TI 打开他。
+
+可以点击右上角(那个仿真按钮，待截图)，进行软件仿真，查看预期 PWM 控制下的预期输出波形。
+
+点击(那个生成按钮，待截图)，生成仿真接线表，需要导入 Yoro-HiL 实现半实物仿真。
+
+## 导入示例工程
+
+### 拓扑导入
+
+将(某个名字，设备名还没想好)连接到电脑上，打开 Yoro-HiL，点击`拓扑模型`。
+
+由于这是示例模型，可以选择`示例拓扑-> 1_没想好什么电路`。
+
+或者选择`导入 pspice 拓扑`，选择生成的接线表文件，这个文件在(某个神秘的地方)。
+
+### 端口映射配置
+
+- 单一输出将支持输出某个器件上的电压或电流数据。示例为输出 L1 上的电压数据。
+- 计算输出将编辑表达式输出计算后的结果。示例为输出 L1 电流与 R1 电流的计算和。
+
+```markdown tab="单一输出"
+`端口映射->输入端口`，点击"+"添加一个条目，
+依次选择"IGBT1"、"PWM 的输入 IO——例如 DI1"。    
+
+`端口映射->输出数据`，点击+添加一个条目，
+依次选择"L1"、"电压"，配置数据名为 "L1_V" 
+
+`端口映射->输出端口`，点击"+"添加一个条目，
+依次选择"已有数据"、"L1_V"、"ADC 采样数据的输出 IO——例如 DO1"  
+```
+ 
+```markdown tab="计算输出"
+`端口映射->输入端口`，点击"+"添加一个条目，
+依次选择"IGBT1"、"PWM 的输入 IO——例如 DI1"。    
+
+`端口映射->输出数据`，点击+添加一个条目，
+依次选择"L1"、"电流"，配置数据名为 "L1_I"，
+再添加一个条目依次选择"R1"、"电流"，配置数据名为 "R1_I"。  
+
+`端口映射->输出端口`，点击"+"添加一个条目，
+依次选择"计算数据"、"L1_I+R1_I"、"ADC 采样数据的输出 IO——例如 DO1"  
+```
+
+配置完成后点击`保存配置`。
+
+### 下载拓扑
+
+一切就绪，点击`下载拓扑`，等待提示下载完成。
+
+在上述配置下，需要将控制端 PWM 接到设备的 DI1 上，将控制端采样接到设备的 DO1 上。
+
+现在享受半实物仿真。
+
+## 接下来?
+
+<Cards>
+  <Card title="参见常用QA规避错误" href="/docs/quickStart/QA/" />
+</Cards>

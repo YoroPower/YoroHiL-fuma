@@ -1,0 +1,7 @@
+{
+  "title": "快速上手",
+  "description": "开启首个仿真",
+  "icon": "Building2",
+  "root": true,
+  "pages": ["---首个仿真---", "index", "QA"]
+}
